@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021654258688",
+    "project_id": "the-akshay-dove",
+    "storage_bucket": "the-akshay-dove.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021654258688:android:6fc2eac47057a72117b4e5",
+        "android_client_info": {
+          "package_name": "com.the_akshay.dove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021654258688-nd6eqfih7bl1dkqvrmmbtl3l5o28ajrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACq-7OPAX-ULSsJHJkOCsXg_wwpmLXwo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021654258688-nd6eqfih7bl1dkqvrmmbtl3l5o28ajrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

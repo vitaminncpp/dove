@@ -11,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.the_akshay.dove.R;
 import com.the_akshay.dove.addapter.UserAddapter;
 import com.the_akshay.dove.databinding.FragmentChatsBinding;
@@ -82,6 +85,24 @@ public class ChatsFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.ChatsRecycChats.setLayoutManager(layoutManager);
+        database = FirebaseDatabase.getInstance();
+        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user;
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    user = dataSnapshot.getValue(User.class);
+                    user.setUID(dataSnapshot.getKey());
+                    list.add(user);
+                }
+                addapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         return binding.getRoot();
     }

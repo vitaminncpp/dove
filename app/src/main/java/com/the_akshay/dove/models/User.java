@@ -61,4 +61,6 @@ public class User {
     public void setLasrMsg(String lasrMsg) {
         this.lasrMsg = lasrMsg;
     }
+
+
 }

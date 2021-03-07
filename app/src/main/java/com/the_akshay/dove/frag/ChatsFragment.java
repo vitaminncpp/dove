@@ -2,13 +2,22 @@ package com.the_akshay.dove.frag;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.the_akshay.dove.R;
+import com.the_akshay.dove.addapter.UserAddapter;
+import com.the_akshay.dove.databinding.FragmentChatsBinding;
+import com.the_akshay.dove.models.User;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +26,7 @@ import com.the_akshay.dove.R;
  */
 public class ChatsFragment extends Fragment {
 
+    FragmentChatsBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,6 +35,10 @@ public class ChatsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    ArrayList<User> list = new ArrayList<>();
+    FirebaseDatabase database;
 
     public ChatsFragment() {
         // Required empty public constructor
@@ -58,9 +72,16 @@ public class ChatsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chats, container, false);
+        binding = FragmentChatsBinding.inflate(inflater, container, false);
+        UserAddapter addapter = new UserAddapter(list, getContext());
+        binding.ChatsRecycChats.setAdapter(addapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        binding.ChatsRecycChats.setLayoutManager(layoutManager);
+
+        return binding.getRoot();
     }
 }

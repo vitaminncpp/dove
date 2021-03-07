@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.the_akshay.dove.addapter.FragmentsAddpter;
 import com.the_akshay.dove.databinding.ActivityMainBinding;
+import com.the_akshay.dove.databinding.ActivitySignInBinding;
+import com.the_akshay.dove.databinding.ActivitySignUpBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         binding.mainViewpager.setAdapter(new FragmentsAddpter(getSupportFragmentManager()));
         binding.mainTab.setupWithViewPager(binding.mainViewpager);
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

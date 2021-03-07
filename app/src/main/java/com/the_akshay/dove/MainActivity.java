@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         setContentView(binding.getRoot());
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
         binding.mainViewpager.setAdapter(new FragmentsAddpter(getSupportFragmentManager()));
         binding.mainTab.setupWithViewPager(binding.mainViewpager);

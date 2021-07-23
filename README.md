@@ -1,7 +1,7 @@
 # dove
 Dove provides decentralized solutions for connecting people. 
 
-#Naming convention
+## Naming convention
 
   1 camelCase convention only
   
